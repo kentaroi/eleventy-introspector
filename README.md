@@ -19,14 +19,14 @@ const path = require("path");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("installedPlugins", function() {
-    return intros.eleventy.config.plugins.map(e => {
-      return intros.eleventy.eleventyConfig.userConfig._getPluginName(e.plugin) ?? "N/A";
+    return intros.eleventy.config.plugins.map(p => {
+      return intros.eleventy.eleventyConfig.userConfig._getPluginName(p.plugin) ?? "N/A";
     }).join(", ");
   });
 
   eleventyConfig.addFilter("intputPathToOutputPath", function(inputPath) {
-    return intros.eleventy.writer.templateMap.getMap().find(template => {
-      return path.relative(template.inputPath, inputPath) === "";
+    return intros.eleventy.writer.templateMap.getMap().find(mapEntry => {
+      return path.relative(mapEntry.inputPath, inputPath) === "";
     })?.outputPath;
   });
 };
