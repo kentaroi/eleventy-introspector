@@ -1,6 +1,6 @@
 {
   "name": "eleventy-introspector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows you to access the Eleventy instance",
   "main": "index.js",
   "scripts": {
